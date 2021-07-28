@@ -40,8 +40,8 @@ def extractTweet(palavras_chave):
     dfTweets = pd.DataFrame.from_dict(tweets_dict)
     print(dfTweets['text'].head(50))
     print(f'Quantidade de posts retornados: {dfTweets.shape[0]}')
-    dfTweets['text'].to_csv(f'{palavras_chave}_base_comentarios.csv',sep=';')
-    dfTweets.to_csv(f'{palavras_chave}_base_full.csv',sep=';')
+    dfTweets['text'].to_csv(f'datasets/{palavras_chave}_base_comentarios.csv',sep=';')
+    dfTweets.to_csv(f'datasets/{palavras_chave}_base_full.csv',sep=';')
     return dfTweets
 
 extractTweet('FMU')
