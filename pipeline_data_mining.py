@@ -16,14 +16,16 @@ from nltk.corpus import wordnet
 from nltk import FreqDist
 from nltk.corpus import brown
 import pandas as pd
+import extract_tweet 
+import textblob.exceptions
 
 # %matplotlib inline
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from textblob import TextBlob
 
-import logging
-logging.basicConfig(filename='example.log', filemode='w', level=logging.DEBUG)
+import logging as logger
+logger.basicConfig(filename='example.log', filemode='w', level=logger.DEBUG)
 
 """## Entrada de dados!
 
@@ -62,7 +64,7 @@ def freq_word(array_lista_de_palavras):
     return frequencia_de_palavras
   except Exception as e:
     logger.error(f'Houve um erro na geração da frequência das palavras: {e}')
-
+    
 def plot_freq_word(frequencia_de_palavras):
   logger.info("Gerando gráfico de frequência de palavras")
   try:
@@ -92,6 +94,7 @@ def RemoveStopWords(instancia):
     logger.info("Stop Wrods removidas com sucesso!")
     return (" ".join(palavras))
   except Exception as e:
+    print(e)
     logger.error(f"Houve um erro na remoção das stop words: {e}")
 
 """## Analise de sentimento"""
@@ -103,20 +106,33 @@ def phrases_polarity(array_lines):
     key = 0
     for line in array_lines:
       frase = TextBlob(line)
-      frase2 = TextBlob.translate(frase)
-      dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
-      key+=1
-      logger.info('Dicionario com polaridades gerado com sucesso!')
-      # print(f'Sentimento:-> Polaridade: {frase2.sentiment[0]} Subjetividade: {frase2.sentiment[1]} <==> Frase Original: {frase} <==> Frase traduzida: {frase2}')
+      if frase.detect_language() != 'en':
+        frase2 = frase.translate(to='en')
+        dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
+        key+=1
+        logger.info('Dicionario com polaridades gerado com sucesso!')
+        # print(f'Sentimento:-> Polaridade: {frase2.sentiment[0]} Subjetividade: {frase2.sentiment[1]} <==> Frase Original: {frase} <==> Frase traduzida: {frase2}')
+      else:
+        dict[key] = {'frase_original': frase, 'frase_traduzida' : frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
+        key+=1
+        logger.info('Dicionario com polaridades gerado com sucesso!')
     return dict
   except Exception as e:
     logger.error(f'Houve um erro na análise de sentimento: {e}')
 
-"""## PIPELINE"""
 
-df = load_dataframe('https://raw.githubusercontent.com/OseiasBeu/TCC_Dta_Science/main/datasets/news.csv')
-lista_de_frases = df[0].to_list()
-lista_de_frases = ['Eu odeio a FMU!','A FMU é a pior universidade do mundo!','A FMU é péssima','Estudar no google é maravilhoso']
+
+"""## PIPELINE"""
+# df = load_dataframe('https://raw.githubusercontent.com/OseiasBeu/TCC_Dta_Science/main/datasets/news.csv')
+df = extract_tweet.extractTweet('FMU')
+df.to_csv('testando.csv',sep=';',encoding='utf8')
+print(type(df))
+print(df.head())
+lista_de_frases = df['text'].to_list()
+# lista_de_frases = df[0].to_list()
+# print(lista_de_frases)
+
+# lista_de_frases = ['Eu odeio a FMU!','A FMU é a pior universidade do mundo!','A FMU é péssima','Estudar no google é maravilhoso']
 lista_de_palavras = array_to_word_list(lista_de_frases)
 lista_de_palavras_s_stop_words = RemoveStopWords(lista_de_palavras)
 frequencia_de_palavras = freq_word(lista_de_palavras_s_stop_words.split())

@@ -3,7 +3,7 @@ import pandas as pd
 import get_token
 
 
-def extractTweet():
+def extractTweet(palavras_chave):
 
     body = ['consumer_key','consumer_secret','access_token']
     secret = get_token.print_env(body)
@@ -11,12 +11,13 @@ def extractTweet():
     consumer_key = secret['consumer_key']
 
     auth = tw.AppAuthHandler(consumer_key, consumer_secret)
-    query_search= "Bolsonaro"  + " -filter:retweets" 
+    query_search= f"{palavras_chave}"  + " -filter:retweets" 
+    # print(query_search)
     api = tw.API(auth)
     cursor_tweets = tw.Cursor(api.search,
                           since="2021-07-01",
                           # until="2021-07-25",
-            q=query_search).items(200)
+            q=query_search,lang="pt-br").items(500)
 
     tweets_dict = {}
     tweets_dict = tweets_dict.fromkeys(['created_at', 'id', 'id_str', 'text', 'truncated', 'entities', 'metadata', 'source', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'in_reply_to_user_id', 'in_reply_to_user_id_str', 'in_reply_to_screen_name', 'user', 'geo', 'coordinates', 'place', 'contributors', 'is_quote_status', 'retweet_count', 'favorite_count', 'favorited', 'retweeted'])
@@ -37,7 +38,10 @@ def extractTweet():
                 tweets_dict[key] = [twvalue]
     
     dfTweets = pd.DataFrame.from_dict(tweets_dict)
-    print(dfTweets.head())
+    print(dfTweets['text'].head(50))
     print(f'Quantidade de posts retornados: {dfTweets.shape[0]}')
+    dfTweets['text'].to_csv(f'{palavras_chave}_base_comentarios.csv',sep=';')
+    dfTweets.to_csv(f'{palavras_chave}_base_full.csv',sep=';')
+    return dfTweets
 
-extractTweet()
+extractTweet('FMU')
