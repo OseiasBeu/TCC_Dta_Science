@@ -12,12 +12,12 @@ def extractTweet(palavras_chave):
 
     auth = tw.AppAuthHandler(consumer_key, consumer_secret)
     query_search= f"{palavras_chave}"  + " -filter:retweets" 
-    # print(query_search)
+    print(query_search)
     api = tw.API(auth)
     cursor_tweets = tw.Cursor(api.search,
                           since="2021-07-01",
                           # until="2021-07-25",
-            q=query_search,lang="pt-br").items(500)
+            q=query_search, lang="pt-br").items(500)
 
     tweets_dict = {}
     tweets_dict = tweets_dict.fromkeys(['created_at', 'id', 'id_str', 'text', 'truncated', 'entities', 'metadata', 'source', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'in_reply_to_user_id', 'in_reply_to_user_id_str', 'in_reply_to_screen_name', 'user', 'geo', 'coordinates', 'place', 'contributors', 'is_quote_status', 'retweet_count', 'favorite_count', 'favorited', 'retweeted'])
@@ -44,4 +44,4 @@ def extractTweet(palavras_chave):
     dfTweets.to_csv(f'datasets/{palavras_chave}_base_full.csv',sep=';')
     return dfTweets
 
-extractTweet('FMU')
+# extractTweet('FMU')

@@ -99,27 +99,3 @@ def phrases_polarity(array_lines):
     return dict
   except Exception as e:
     logger.error(f'Houve um erro na análise de sentimento: {e}')
-
-
-
-"""## PIPELINE"""
-
-# df = load_dataframe('https://raw.githubusercontent.com/OseiasBeu/TCC_Dta_Science/main/datasets/news.csv')
-df = extract_tweet.extractTweet('FMU')
-df.to_csv('testando.csv',sep=';',encoding='utf8')
-print(type(df))
-print(df.head())
-lista_de_frases = df['text'].to_list()
-# lista_de_frases = df[0].to_list()
-# print(lista_de_frases)
-
-# lista_de_frases = ['Eu odeio a FMU!','A FMU é a pior universidade do mundo!','A FMU é péssima','Estudar no google é maravilhoso']
-lista_de_palavras = array_to_word_list(lista_de_frases)
-lista_de_palavras_s_stop_words = RemoveStopWords(lista_de_palavras)
-frequencia_de_palavras = freq_word(lista_de_palavras_s_stop_words.split())
-plot_freq_word(frequencia_de_palavras)
-
-frases_com_sentimento = phrases_polarity(lista_de_frases)
-
-for i in frases_com_sentimento:
-  print(f'Frase: {frases_com_sentimento[i]["frase_original"]}\n Polaridade:{frases_com_sentimento[i]["polaridade"]} | Subjetividade:{frases_com_sentimento[i]["subjetividade"]} \n')
