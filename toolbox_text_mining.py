@@ -5,8 +5,8 @@ from nltk.corpus import wordnet
 from nltk import FreqDist
 from nltk.corpus import brown
 import pandas as pd
-import extract_tweet 
-import textblob.exceptions
+from googletrans import Translator
+import time
 
 # %matplotlib inline
 import numpy as np
@@ -47,26 +47,26 @@ def array_to_word_list(lista_de_frases):
 def freq_word(array_lista_de_palavras):
   logger.info("Gerando frequência de palavras.")
   try:
-    frequencia_de_palavras = FreqDist(lista_de_palavras)
+    frequencia_de_palavras = FreqDist(array_lista_de_palavras)
     logger.info("Frequência de palavras gerada com sucesso!")
     return frequencia_de_palavras
   except Exception as e:
     logger.error(f'Houve um erro na geração da frequência das palavras: {e}')
     
-def plot_freq_word(frequencia_de_palavras):
-  logger.info("Gerando gráfico de frequência de palavras")
-  try:
-    palavras = frequencia_de_palavras.keys()
-    y_pos = np.arange(len(palavras))
-    contagem = frequencia_de_palavras.values()
-    plt.bar(y_pos, contagem, align='center', alpha=0.5)
-    plt.xticks(y_pos, palavras)
-    plt.ylabel('Frequencia')
-    plt.title('Frequencia das palavras na frase')
-    logger.info('Gráfico Gerado com sucesso!')
-    plt.show()
-  except Exception as e:
-    logger.error(f"Houve um erro na plotagem da frequência das palavras: {e}")
+# def plot_freq_word(frequencia_de_palavras):
+#   logger.info("Gerando gráfico de frequência de palavras")
+#   try:
+#     palavras = frequencia_de_palavras.keys()
+#     y_pos = np.arange(len(palavras))
+#     contagem = frequencia_de_palavras.values()
+#     plt.bar(y_pos, contagem, align='center', alpha=0.5)
+#     plt.xticks(y_pos, palavras)
+#     plt.ylabel('Frequencia')
+#     plt.title('Frequencia das palavras na frase')
+#     logger.info('Gráfico Gerado com sucesso!')
+#     plt.show()
+#   except Exception as e:
+#     logger.error(f"Houve um erro na plotagem da frequência das palavras: {e}")
 
 """## Removendo a stop_words
 * Palavras ou termos que são muito usadas mas normalmente não tem nenhum significado como artigos: 'é','o','a'
@@ -86,16 +86,26 @@ def RemoveStopWords(instancia):
 
 """## Analise de sentimento"""
 def phrases_polarity(array_lines):
+  translator = Translator()
   logger.info('Efetuando a análise de sentimento.')
   try:
     dict = {}
     key = 0
     for line in array_lines:
       frase = TextBlob(line)
-      frase2 = TextBlob.translate(frase)
-      dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
-      key+=1
+      detect = translator.detect(frase)
+      # print(detect.lang)
+      if detect.lang != 'en':
+        translate_frase = translator.translate(frase,dest='en')
+        frase2 =TextBlob(translate_frase.text)
+        dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
+        key+=1
+      else:
+        frase2 =frase
+        dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
+        key+=1
       logger.info('Dicionario com polaridades gerado com sucesso!')
     return dict
   except Exception as e:
     logger.error(f'Houve um erro na análise de sentimento: {e}')
+

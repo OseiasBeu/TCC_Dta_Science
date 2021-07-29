@@ -17,7 +17,7 @@ def extractTweet(palavras_chave):
     cursor_tweets = tw.Cursor(api.search,
                           since="2021-07-01",
                           # until="2021-07-25",
-            q=query_search, lang="pt-br").items(500)
+            q=query_search, lang="pt-br").items(10)
 
     tweets_dict = {}
     tweets_dict = tweets_dict.fromkeys(['created_at', 'id', 'id_str', 'text', 'truncated', 'entities', 'metadata', 'source', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'in_reply_to_user_id', 'in_reply_to_user_id_str', 'in_reply_to_screen_name', 'user', 'geo', 'coordinates', 'place', 'contributors', 'is_quote_status', 'retweet_count', 'favorite_count', 'favorited', 'retweeted'])

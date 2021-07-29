@@ -15,6 +15,7 @@ if resposta == '1':
     palavras_chave = input('Digite as palavras chave:')
     df = extract_tweet.extractTweet(palavras_chave)
     lista_de_frases = df['text'].to_list()
+    # print(lista_de_frases)
     
 elif resposta == '2':
     print('arquivo')
@@ -31,10 +32,10 @@ print(type(df))
 print(df.head())
 # lista_de_frases = df['text'].to_list()
 # lista_de_frases = df[0].to_list()
-print(lista_de_frases)
+# print(lista_de_frases)
 # lista_de_frases = ['Eu odeio a FMU!','A FMU é a pior universidade do mundo!','A FMU é péssima','Estudar no google é maravilhoso']
-##### COMENTAR ######
 
+##### COMENTAR ######
 lista_de_palavras = toolbox_text_mining.array_to_word_list(lista_de_frases)
 lista_de_palavras_s_stop_words = toolbox_text_mining.RemoveStopWords(lista_de_palavras)
 frequencia_de_palavras = toolbox_text_mining.freq_word(lista_de_palavras_s_stop_words.split())
