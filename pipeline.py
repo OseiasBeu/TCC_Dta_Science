@@ -5,18 +5,18 @@ import extract_tweet
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-print('O que você deseja fazer? ')
+print('O que você deseja fazer?\n')
 print('''
-1 - Analise de sentimento a partir do twitter?\n
-2 - Analise de sentimento a partir de um arquivo?\n
+1 - Analise de sentimento a partir do twitter?
+2 - Analise de sentimento a partir de um arquivo?
 ''')
 
-resposta = input('Digite sua resposta: [1] - [2]: ')
+resposta = input('\nDigite sua resposta: [1] - [2]: ')
 if resposta == '1':
-    palavras_chave = input('Digite as palavras chave:')
-    language = input('Digite o pais de origem: ex [ pt-br ]:')
-    since_date = input('Deseja extrair tweets desde quando?')
-    qtd_ret = 10
+    palavras_chave = input('>Digite as palavras chave:')
+    language = input('>Digite o pais de origem: ex [ pt-br ]:')
+    since_date = input('>Deseja extrair tweets desde quando?')
+    qtd_ret = 20
     df = extract_tweet.extractTweet(palavras_chave,language,since_date, qtd_ret)
     lista_de_frases = df['text'].to_list()
 
@@ -31,8 +31,8 @@ else:
 
 
 ##### COMENTAR ######
-print(type(df))
-print(df.head())
+# print(type(df))
+# print(df.head())
 # lista_de_frases = df['text'].to_list()
 # lista_de_frases = df[0].to_list()
 # print(lista_de_frases)

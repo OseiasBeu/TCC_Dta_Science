@@ -3,15 +3,15 @@ import pandas as pd
 import get_token
 
 
-def extractTweet(palavras_chave,language ="pt-br",since_date="2021-07-01", qtd_ret = 20):
-    # if language == '':
-    #     language = "pt-br"
+def extractTweet(palavras_chave,language,since_date, qtd_ret):
+    if language == '':
+        language = "pt-br"
     
-    # if since_date =='':
-    #     since_date="2021-07-01"
+    if since_date =='':
+        since_date="2021-07-01"
     
-    # if qtd_ret == '':
-    #     qtd_ret = 20
+    if qtd_ret == '':
+        qtd_ret = 20
 
     body = ['consumer_key','consumer_secret','access_token']
     secret = get_token.print_env(body)

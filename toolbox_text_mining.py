@@ -6,7 +6,6 @@ from nltk import FreqDist
 from nltk.corpus import brown
 import pandas as pd
 from googletrans import Translator
-import time
 
 # %matplotlib inline
 import numpy as np
@@ -119,6 +118,8 @@ def phrases_polarity(array_lines):
         dict[key] = {'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
         key+=1
       logger.info('Dicionario com polaridades gerado com sucesso!')
+    sense_df = pd.DataFrame(dict.items()) 
+    sense_df.to_csv('datasets/base_com_sentimentos.csv',sep=';',encoding='utf-8')
     return dict
   except Exception as e:
     logger.error(f'Houve um erro na análise de sentimento: {e}')
@@ -136,13 +137,13 @@ def calc_nps(arrays_respostas):
     else:
       neutros.append(resposta)
   
-  print(f'>Quantidade de Promotores:{len(promotores)} \n>Quantidade de detratores:{len(detratores)}\n>Quantidade de neutros:{len(neutros)}')
+  print(f'Quantidade de respostas totais:{len(arrays_respostas)}\n>Quantidade de Promotores:{len(promotores)} \n>Quantidade de detratores:{len(detratores)}\n>Quantidade de neutros:{len(neutros)}')
 
   nps = ((len(promotores) - len(detratores))/len(arrays_respostas))*100
   print(f'Valor de NPS: {nps}')
   return nps
 
 
-lista_de_frases =['https://oseias.beu esse e o site','Eu odeio. Testes!','isto, não é um cachimbo.']
-a = Limpeza_dados(lista_de_frases)
-print(a)
+# lista_de_frases =['https://oseias.beu esse e o site','Eu odeio. Testes!','isto, não é um cachimbo.']
+# a = Limpeza_dados(lista_de_frases)
+# print(a)
