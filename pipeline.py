@@ -2,6 +2,8 @@
 import toolbox_text_mining
 import extract_file
 import extract_tweet
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
 
 print('O que você deseja fazer? ')
 print('''
@@ -11,12 +13,13 @@ print('''
 
 resposta = input('Digite sua resposta: [1] - [2]: ')
 if resposta == '1':
-    print('tw')
     palavras_chave = input('Digite as palavras chave:')
-    df = extract_tweet.extractTweet(palavras_chave)
+    language = input('Digite o pais de origem: ex [ pt-br ]:')
+    since_date = input('Deseja extrair tweets desde quando?')
+    qtd_ret = 10
+    df = extract_tweet.extractTweet(palavras_chave,language,since_date, qtd_ret)
     lista_de_frases = df['text'].to_list()
-    # print(lista_de_frases)
-    
+
 elif resposta == '2':
     print('arquivo')
     pathFile = input('Digite o caminho do arquivo:')
@@ -48,5 +51,5 @@ respostas = []
 for i in frases_com_sentimento:
   print(f'Frase: {frases_com_sentimento[i]["frase_original"]}\n Polaridade:{frases_com_sentimento[i]["polaridade"]} | Subjetividade:{frases_com_sentimento[i]["subjetividade"]} \n')
   respostas.append(frases_com_sentimento[i]["polaridade"])
-  
+
 nps = toolbox_text_mining.calc_nps(respostas)

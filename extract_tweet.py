@@ -3,7 +3,15 @@ import pandas as pd
 import get_token
 
 
-def extractTweet(palavras_chave):
+def extractTweet(palavras_chave,language ="pt-br",since_date="2021-07-01", qtd_ret = 20):
+    # if language == '':
+    #     language = "pt-br"
+    
+    # if since_date =='':
+    #     since_date="2021-07-01"
+    
+    # if qtd_ret == '':
+    #     qtd_ret = 20
 
     body = ['consumer_key','consumer_secret','access_token']
     secret = get_token.print_env(body)
@@ -15,9 +23,9 @@ def extractTweet(palavras_chave):
     print(query_search)
     api = tw.API(auth)
     cursor_tweets = tw.Cursor(api.search,
-                          since="2021-07-01",
+                          since=since_date,
                           # until="2021-07-25",
-            q=query_search, lang="pt-br").items(10)
+            q=query_search, lang=language).items(qtd_ret)
 
     tweets_dict = {}
     tweets_dict = tweets_dict.fromkeys(['created_at', 'id', 'id_str', 'text', 'truncated', 'entities', 'metadata', 'source', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'in_reply_to_user_id', 'in_reply_to_user_id_str', 'in_reply_to_screen_name', 'user', 'geo', 'coordinates', 'place', 'contributors', 'is_quote_status', 'retweet_count', 'favorite_count', 'favorited', 'retweeted'])
