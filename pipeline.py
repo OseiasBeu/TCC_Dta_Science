@@ -36,11 +36,17 @@ print(df.head())
 # lista_de_frases = ['Eu odeio a FMU!','A FMU é a pior universidade do mundo!','A FMU é péssima','Estudar no google é maravilhoso']
 
 ##### COMENTAR ######
-lista_de_palavras = toolbox_text_mining.array_to_word_list(lista_de_frases)
+
+lista_de_frases_tratadas = toolbox_text_mining.Limpeza_dados(lista_de_frases)
+lista_de_palavras = toolbox_text_mining.array_to_word_list(lista_de_frases_tratadas)
 lista_de_palavras_s_stop_words = toolbox_text_mining.RemoveStopWords(lista_de_palavras)
 frequencia_de_palavras = toolbox_text_mining.freq_word(lista_de_palavras_s_stop_words.split())
 # toolbox_text_mining.plot_freq_word(frequencia_de_palavras)
 
-frases_com_sentimento = toolbox_text_mining.phrases_polarity(lista_de_frases)
+frases_com_sentimento = toolbox_text_mining.phrases_polarity(lista_de_frases_tratadas)
+respostas = []
 for i in frases_com_sentimento:
   print(f'Frase: {frases_com_sentimento[i]["frase_original"]}\n Polaridade:{frases_com_sentimento[i]["polaridade"]} | Subjetividade:{frases_com_sentimento[i]["subjetividade"]} \n')
+  respostas.append(frases_com_sentimento[i]["polaridade"])
+  
+nps = toolbox_text_mining.calc_nps(respostas)

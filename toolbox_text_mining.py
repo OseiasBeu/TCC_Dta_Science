@@ -21,6 +21,7 @@ logger.basicConfig(filename='logs/logs.log', filemode='w', level=logger.DEBUG)
 """
 
 def load_dataframe(link):
+  print('-[] Efetuando o carregamento do datafreme.')
   try:
     logger.info('Efetuando o carregamento do datafreme.')
     file = link
@@ -34,6 +35,7 @@ def load_dataframe(link):
 """## Verificando a frequência das palavras"""
 
 def array_to_word_list(lista_de_frases):
+  print('-[] Convertendo lista de frases em lista de palavras.')
   logger.info('Convertendo lista de frases em lista de palavras.')
   try:
     lista_de_palavras = []
@@ -68,12 +70,23 @@ def freq_word(array_lista_de_palavras):
 #   except Exception as e:
 #     logger.error(f"Houve um erro na plotagem da frequência das palavras: {e}")
 
+def Limpeza_dados(lista_de_frases):
+  print('-[] Efetuando Data Cleaning...')
+  lista_de_frases_tratadas = []
+  for instancia in lista_de_frases:
+    # remove links, pontos, virgulas,ponto e virgulas dos tweets
+    instancia = re.sub(r"http\S+", "", instancia).lower().replace('.','').replace(';','').replace('-','').replace(':','').replace(')','')
+    lista_de_frases_tratadas.append(instancia)
+
+  return (lista_de_frases_tratadas)
+
 """## Removendo a stop_words
 * Palavras ou termos que são muito usadas mas normalmente não tem nenhum significado como artigos: 'é','o','a'
 * Técnica usada para pré-processamento de dados
 """
 
 def RemoveStopWords(instancia):
+  print('-[] Removendo StopWords.')
   logger.info('Removendo Stop Words')
   try:
     stopwords = set(nltk.corpus.stopwords.words('portuguese'))
@@ -86,6 +99,7 @@ def RemoveStopWords(instancia):
 
 """## Analise de sentimento"""
 def phrases_polarity(array_lines):
+  print('-[] Efetuando a análise de sentimento.')
   translator = Translator()
   logger.info('Efetuando a análise de sentimento.')
   try:
@@ -109,3 +123,26 @@ def phrases_polarity(array_lines):
   except Exception as e:
     logger.error(f'Houve um erro na análise de sentimento: {e}')
 
+def calc_nps(arrays_respostas):
+  print('-[] Calculando NPS.')
+  promotores = []
+  detratores = []
+  neutros = []
+  for resposta in arrays_respostas:
+    if resposta > 0:
+      promotores.append(resposta)
+    elif resposta < 0: 
+      detratores.append(resposta)
+    else:
+      neutros.append(resposta)
+  
+  print(f'>Quantidade de Promotores:{len(promotores)} \n>Quantidade de detratores:{len(detratores)}\n>Quantidade de neutros:{len(neutros)}')
+
+  nps = ((len(promotores) - len(detratores))/len(arrays_respostas))*100
+  print(f'Valor de NPS: {nps}')
+  return nps
+
+
+lista_de_frases =['https://oseias.beu esse e o site','Eu odeio. Testes!','isto, não é um cachimbo.']
+a = Limpeza_dados(lista_de_frases)
+print(a)
