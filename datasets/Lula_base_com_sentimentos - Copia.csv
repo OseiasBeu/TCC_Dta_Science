@@ -1,0 +1,39 @@
+;0;1
+0;0;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@fabiopf08fabio um cara que faz um power point dos quinto da mentira tinha vergonha ? 
+viva a @mauramontella , vai… ""), 'frase_traduzida': TextBlob(""@fabiopf08fabio um cara que faz um power point dos quinto da mentira tinha vergonha ? 
+viva a @mauramontella , vai… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+1;1;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@oglobopolitica @jairbolsonaro enquanto isso, o lula só no diálogo com a europa ""), 'frase_traduzida': TextBlob(""@oglobopolitica @jairbolsonaro enquanto isso, o lula só no diálogo com a europa ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+2;2;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@ezequiel_alv1 se tem uma coisa que o lesa pátria lula se equiparou ao ditador stálin,foi ter criado junto com fide… ""), 'frase_traduzida': TextBlob(""@ezequiel_alv1 se tem uma coisa que o lesa pátria lula se equiparou ao ditador stálin,foi ter criado junto com fide… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+3;3;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@cnnbrasil datena você não tem chance alguma de ganhar para presidente 
+lula e bolsonaro já estão no 2° turnoseha… ""), 'frase_traduzida': TextBlob(""@cnnbrasil datena você não tem chance alguma de ganhar para presidente 
+lula e bolsonaro já estão no 2° turnoseha… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+4;4;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@elisaraujo2010 @observotariopig o pavor do  🤡 é lula ser seu adversário, os outros concorrentes ele comeria com fa… ""), 'frase_traduzida': TextBlob(""@elisaraujo2010 @observotariopig o pavor do  🤡 é lula ser seu adversário, os outros concorrentes ele comeria com fa… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+5;5;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@carloscezarcjr @geracaodevalor @arisansouza população que elegeu dilma e lula kkkķkkk
+fácil essa
+brasileiro, que… ""), 'frase_traduzida': TextBlob(""@carloscezarcjr @geracaodevalor @arisansouza população que elegeu dilma e lula kkkķkkk
+fácil essa
+brasileiro, que… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+6;6;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@deputadofederal muita, muita podridão! quando lula assumir em 2023, revoga esses atos espúrios e o povo vai conhec… ""), 'frase_traduzida': TextBlob(""@deputadofederal muita, muita podridão! quando lula assumir em 2023, revoga esses atos espúrios e o povo vai conhec… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+7;7;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""o stf inocentou lula,tornou lula elegível,como na política brasileira,nada e feito de graça,quanto não deve ter sido o valor da fatura,""), 'frase_traduzida': TextBlob(""o stf inocentou lula,tornou lula elegível,como na política brasileira,nada e feito de graça,quanto não deve ter sido o valor da fatura,""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+8;8;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@veramariams barroso e lula são comparsas""), 'frase_traduzida': TextBlob(""@veramariams barroso e lula são comparsas""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+9;9;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@thayna_lmf kkkkk acho melhor esse ciro procurar outras formas de tentar ganhar uma eleição, só atacar o lula n vai dar n kkkkk""), 'frase_traduzida': TextBlob(""@thayna_lmf kkkkk acho melhor esse ciro procurar outras formas de tentar ganhar uma eleição, só atacar o lula n vai dar n kkkkk""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+10;10;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""impresso e auditável! só que confia no instituto lula é o pt e o psdb! 
+
+""), 'frase_traduzida': TextBlob(""impresso e auditável! só que confia no instituto lula é o pt e o psdb! 
+
+""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+11;11;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""não tenho uma camisa vermelha do pt/lula gente que espécie de petista da desgraça eu sou???""), 'frase_traduzida': TextBlob(""não tenho uma camisa vermelha do pt/lula gente que espécie de petista da desgraça eu sou???""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+12;12;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@toniohvski @o_antagonista quem tenta comprar imprensa é o bozo, vide sikeira jr, entre outros, disse que ia acabar… ""), 'frase_traduzida': TextBlob(""@toniohvski @o_antagonista quem tenta comprar imprensa é o bozo, vide sikeira jr, entre outros, disse que ia acabar… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+13;13;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""eu tô falando, o lula tem foto pra absolutamente qualquer coisa ""), 'frase_traduzida': TextBlob(""eu tô falando, o lula tem foto pra absolutamente qualquer coisa ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+14;14;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@estadao @estadaopolitica enquanto isso, três chefes de estado (portugal, angola e cabo verde estão visitando o br… ""), 'frase_traduzida': TextBlob(""@estadao @estadaopolitica enquanto isso, três chefes de estado (portugal, angola e cabo verde estão visitando o br… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+15;15;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@flavio_raimundo @jdoriajr essa galera que você defende, como lula, já falou tanto mal do nordestino, das mulheres,… ""), 'frase_traduzida': TextBlob(""@flavio_raimundo @jdoriajr essa galera que você defende, como lula, já falou tanto mal do nordestino, das mulheres,… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+16;16;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@leandrog1914 bom dia lêêê😘🥰🏋️⛹️🤾
+
+bom dia vermelhindos, em ritmo de olimpíadas lula vence todos, atenção ao… ""), 'frase_traduzida': TextBlob(""@leandrog1914 bom dia lêêê😘🥰🏋️⛹️🤾
+
+bom dia vermelhindos, em ritmo de olimpíadas lula vence todos, atenção ao… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+17;17;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""@fernandobarros cara, fala de esquerda, de progressismo, de social democracia, fale de ideologia, so nao associem i… ""), 'frase_traduzida': TextBlob(""@fernandobarros cara, fala de esquerda, de progressismo, de social democracia, fale de ideologia, so nao associem i… ""), 'polaridade': 0.03333333333333333, 'subjetividade': 0.06666666666666667}"
+18;18;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""datena você não tem chance alguma de ganhar para presidente 
+lula e bolsonaro já estão no 2° turnoseha esperto nào… ""), 'frase_traduzida': TextBlob(""datena você não tem chance alguma de ganhar para presidente 
+lula e bolsonaro já estão no 2° turnoseha esperto nào… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+19;19;"{'criterio_de_pesquisa': 'lula', 'frase_original': TextBlob(""reinauguração do @museudalingua contou com presidentes de portugal e cabo verde e lula já o presidente do brasil… ""), 'frase_traduzida': TextBlob(""reinauguração do @museudalingua contou com presidentes de portugal e cabo verde e lula já o presidente do brasil… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
