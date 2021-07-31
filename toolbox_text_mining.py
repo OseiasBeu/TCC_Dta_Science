@@ -118,8 +118,8 @@ def phrases_polarity(array_lines,criterio_de_pesquisa):
         dict[key] = {'criterio_de_pesquisa':criterio_de_pesquisa,'frase_original': frase, 'frase_traduzida': frase2, 'polaridade':frase2.sentiment[0],'subjetividade':frase2.sentiment[1]}
         key+=1
       logger.info('Dicionario com polaridades gerado com sucesso!')
+      
     sense_df = pd.DataFrame(dict.items()) 
-
     sense_df.to_csv('datasets/base_com_sentimentos_new.csv',sep=';',encoding='utf-8',index=False)
 
     df_exsitis = pd.read_csv('datasets/base_com_sentimentos.csv',sep=';',encoding='utf-8')

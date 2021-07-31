@@ -1,4 +1,9 @@
 1
+"{'criterio_de_pesquisa': 'fmu', 'frase_original': TextBlob(""obrigado por nada fmu ""), 'frase_traduzida': TextBlob(""obrigado por nada fmu ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+"{'criterio_de_pesquisa': 'fmu', 'frase_original': TextBlob(""eu na fmu 😜🤡 ""), 'frase_traduzida': TextBlob(""eu na fmu 😜🤡 ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+"{'criterio_de_pesquisa': 'fmu', 'frase_original': TextBlob(""@beahelen_ ai, amg, vai dar certo a fmu nos faz surtar todos os dias, mas logo enviam o surto do aluno, é meio qu… ""), 'frase_traduzida': TextBlob(""@beahelen_ ai, amg, vai dar certo a fmu nos faz surtar todos os dias, mas logo enviam o surto do aluno, é meio qu… ""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+"{'criterio_de_pesquisa': 'fmu', 'frase_original': TextBlob(""fmu, obrigado pelo ódio diário""), 'frase_traduzida': TextBlob(""fmu, obrigado pelo ódio diário""), 'polaridade': 0.0, 'subjetividade': 0.0}"
+"{'criterio_de_pesquisa': 'fmu', 'frase_original': TextBlob(""as aulas só voltam na terça, mas a dona fmu, me faz passar raiva sem pausas, desde 20191!""), 'frase_traduzida': TextBlob(""as aulas só voltam na terça, mas a dona fmu, me faz passar raiva sem pausas, desde 20191!""), 'polaridade': 0.0, 'subjetividade': 0.0}"
 "{'criterio_de_pesquisa': 'uninove', 'frase_original': TextBlob(""@dcaf1 @uninove primeiro bimestre fiz de noite e acabei não gostando muito,então agora no segundo mudei para manhã""), 'frase_traduzida': TextBlob(""@dcaf1 @uninove primeiro bimestre fiz de noite e acabei não gostando muito,então agora no segundo mudei para manhã""), 'polaridade': 0.0, 'subjetividade': 0.0}"
 "{'criterio_de_pesquisa': 'uninove', 'frase_original': TextBlob(""@gabyagy @uninove aeeeee
 
