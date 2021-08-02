@@ -52,4 +52,9 @@ def extractTweet(palavras_chave,language,since_date, qtd_ret):
     dfTweets.to_csv(f'datasets/{palavras_chave}_base_full.csv',sep=';')
     return dfTweets
 
-# extractTweet('FMU')
+palavras_chave = 'FMU'
+language =''
+since_date='' 
+qtd_ret=100
+
+extractTweet(palavras_chave,language,since_date, qtd_ret)
